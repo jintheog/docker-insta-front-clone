@@ -3,6 +3,11 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+# ARG -> 빌드 단계에서 환경변수 적용
+ARG REACT_APP_API_URL=""
+# ENV -> 실행할때 환경변수 적용
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
 COPY package.json ./
 COPY package-lock.json ./
 
